@@ -1,0 +1,147 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package circle_cylinder;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author maged
+ */
+public class Circle_cylinder {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner input =new Scanner(System.in);
+        circle c=new circle();
+        cylinder l=new cylinder();
+        double r,h;
+        String color;
+        
+        System.out.println("Enter the radius of circle");
+        r=input.nextDouble();
+        c.setRadius(r);
+        System.out.println("Enter the color of circle");
+        color=input.next();
+        c.setColor(color);
+        System.out.println("********************************");
+        System.out.println("The radius of circle = "+c.getRadius());
+        System.out.println("The color of circle = "+c.getColor());
+        c.setArea(r);
+        System.out.println("The area of circle = "+c.getArea());
+        System.out.println("********************************");
+        System.out.println(c.toString());
+        System.out.println("----------------------------------------------------");
+        System.out.println("Enter the Height of cylinder"); 
+        h=input.nextDouble();
+        l.setHeight(h);
+        System.out.println("Enter the Base radius  of volume");
+        r=input.nextDouble();
+        l.setRadius(r);
+        l.setArea(r);
+        System.out.println("Enter the color of cylinder");
+        color=input.next();
+        l.setColor(color);
+        System.out.println("********************************");
+        System.out.println("The height of cylinder = "+l.getHeight());
+        System.out.println("The color of cylinder = "+l.getColor());
+        l.setVolume(h);   
+        System.out.println("The volume of cylinder = "+l.getVolume());
+        System.out.println("********************************");
+        System.out.println(l.toString());
+        
+        
+        
+        
+    }
+    
+}
+class circle {
+protected double radius=1,area;
+protected String color="red";
+
+    public circle() {
+    }
+
+    public circle(double radius) {
+        this.radius=radius;
+    }
+    public circle(double radius,String color) {
+        this.radius=radius;
+        this.color=color;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public void setArea(double radius) {
+        this.area = radius*radius*3.14;
+    }
+    
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "circle{" + "radius=" + radius + ", area=" + area + ", color=" + color + '}';
+    }
+    
+}
+class cylinder extends circle {
+    private double height=1,volume=1;
+    
+
+    public cylinder() {
+    }
+
+    public cylinder(double height,String color) {
+        this.color=color;
+        this.height=height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+     public void setArea(double radius) {
+        this.area = radius*radius*3.14;
+    }
+
+    public void setVolume(double height) {
+        this.volume =(area)*height;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    @Override
+    public String toString() {
+        return "cylinder{" + "height=" + height + "radius= "+radius +", volume=" + volume +", color= "+color+ '}';
+    }
+}
